@@ -91,7 +91,7 @@ const CostAndStats = () => {
           <Slider {...settings}>
             {stats.map((stat) => (
               <div key={stat.id} className="p-2 ">
-                <div className="bg-white h-[250px] shadow-lg rounded-lg p-6">
+                <div className="bg-white h-[300px] shadow-lg rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
                     {stat.question}
                   </h3>

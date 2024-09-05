@@ -14,7 +14,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-400 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
-        <div className="flex flex-col items-center md:flex-row md:justify-between md:items-center">
+        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:items-center">
           <div className="text-center md:text-left">
             <h2 className="text-white font-bold text-xl">
               BOOK MOVERS NEAR YOU
