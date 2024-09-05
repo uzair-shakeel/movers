@@ -17,7 +17,7 @@ function App() {
       />
       <Review />
       <Banner />
-      <Banner2 />
+      {/* <Banner2 /> */}
       <Resources />
       <CostAndStats />
       <Hero

@@ -13,21 +13,14 @@ const ReviewCard = ({
   vehicle,
 }) => {
   return (
-    <div className="bg-white rounded-lg w-64 h-[300px] flex flex-col justify-between shadow-md p-4 m-4 min-w-[300px] ">
-      <div className="flex items-center mb-2">
-        <img
-          src="https://via.placeholder.com/50" // Replace with dynamic image source
-          alt={`${reviewer} profile`}
-          className="w-12 h-12 rounded-full mr-3"
-        />
-        <div>
-          <p className="font-bold">{reviewer}</p>
-          <p className="text-sm text-blue-600">{location}</p>
-        </div>
-      </div>
-      <div className="mb-2">
+    <div className="bg-white rounded-lg w-64 h-[250px] flex flex-col justify-between shadow-md p-4 m-4 min-w-[300px] ">
+      <p className="text-md text-gray-800 mb-2 text-center break-words">
+        {review}
+      </p>
+
+      <div className="mb-2 mx-auto">
         <p className="text-sm text-gray-600">
-          Reviewing: <span className="text-blue-600">{service}</span>
+          {/* Reviewing: <span className="text-blue-600">{service}</span> */}
         </p>
         <p className="flex items-center">
           {[...Array(5)].map((_, i) => (
@@ -42,12 +35,22 @@ const ReviewCard = ({
               <path d="M12 .288l2.833 8.718h9.167l-7.416 5.384 2.833 8.718-7.417-5.384-7.416 5.384 2.833-8.718-7.416-5.384h9.166z" />
             </svg>
           ))}
-          <span className="text-sm ml-2">({rating} out of 5 rating)</span>
+          <span className="text-sm ml-2">({rating}/5)</span>
         </p>
       </div>
-      <p className="text-sm text-gray-800 mb-2 break-words">{review}</p>
-      <p className="text-xs text-gray-500">Reviewed on: {date}</p>
-      <div className="flex justify-between text-sm mt-2">
+      <div className="flex items-center justify-center mb-2">
+        {/* <img
+          src="https://via.placeholder.com/50" // Replace with dynamic image source
+          alt={`${reviewer} profile`}
+          className="w-12 h-12 rounded-full mr-3"
+        /> */}
+        <div className="flex flex-col justify-center items-center">
+          <p className="font-bold">{reviewer}</p>
+          <p className="text-sm text-blue-600">{date}</p>
+        </div>
+      </div>
+      {/* <p className="text-xs text-gray-500">Reviewed on: {date}</p> */}
+      {/* <div className="flex justify-between text-sm mt-2">
         <div>
           Helpers: <span className="font-bold">{helpers}</span>
         </div>
@@ -57,7 +60,7 @@ const ReviewCard = ({
         <div>
           Vehicle: <span className="font-bold">{vehicle}</span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

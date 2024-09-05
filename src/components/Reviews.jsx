@@ -163,21 +163,6 @@ const Review = () => {
           <ReviewCard key={index} {...review} />
         ))}
       </Marquee>
-      <Marquee
-        direction="right"
-        play
-        speed="30"
-        pauseOnHover={true}
-        className=" flex overflow-x-auto "
-        style={{
-          scrollbarWidth: "none", // For Firefox
-          msOverflowStyle: "none", // For Internet Explorer 10+
-        }}
-      >
-        {reviews.map((review, index) => (
-          <ReviewCard key={index} {...review} />
-        ))}
-      </Marquee>
     </div>
   );
 };
