@@ -12,9 +12,9 @@ const Hero = ({ heading, para }) => {
         <h2 className="text-lg font-medium text-center mb-6">
           Select a Service
         </h2>
-        <div className="flex flex-row max-w-2xl p-4 justify-center items-center gap-6">
+        <div className="flex flex-row max-w-4xl p-4 justify-center items-center gap-6">
           {/* Movers Only Card */}
-          <div className="bg-white shadow-lg  rounded-lg p-3 md:p-6 text-center cursor-pointer border-[2px] border-gray-200 hover:border-blue-400 ">
+          <div className="bg-white shadow-lg md:w-[300px] rounded-lg p-3 md:p-6 text-center cursor-pointer border-[2px] border-gray-200 hover:border-blue-400 ">
             <div className="h-24 w-24 md:h-40 md:w-40 overflow-hidden mx-auto my-4">
               <img
                 src="/cta-labor2.webp"
@@ -31,7 +31,7 @@ const Hero = ({ heading, para }) => {
           </div>
 
           {/* Movers + Truck Card */}
-          <div className="bg-white shadow-lg  rounded-lg p-3 md:p-6 text-center cursor-pointer border-[2px] border-gray-200 hover:border-blue-400 ">
+          <div className="bg-white shadow-lg md:w-[300px] rounded-lg p-3 md:p-6 text-center cursor-pointer border-[2px] border-gray-200 hover:border-blue-400 ">
             <div className="h-24 w-24 md:h-40 md:w-40 overflow-hidden mx-auto my-4">
               <img
                 src="/cta-mpt.webp"
