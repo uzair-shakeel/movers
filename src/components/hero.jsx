@@ -22,10 +22,10 @@ const Hero = ({ heading, para }) => {
                 className="mx-auto mb-4 w-full h-full object-cover"
               />
             </div>
-            <button className="bg-blue-500 text-tiny md:text-md text-white py-2 px-4 rounded-full w-full">
+            <button className="bg-blue-500 text-tiny md:text-medium text-white py-2 px-4 rounded-full w-full">
               Movers Only
             </button>
-            <p className="text-gray-500 mt-2 text-tiny md:text-md">
+            <p className="text-gray-500 mt-2 text-tiny md:text-medium">
               Movers to help load/unload
             </p>
           </div>
@@ -39,10 +39,10 @@ const Hero = ({ heading, para }) => {
                 className="mx-auto mb-4 object-cover h-full w-full"
               />
             </div>
-            <button className="bg-blue-500 text-tiny md:text-md text-white py-2 px-4 rounded-full w-full">
+            <button className="bg-blue-500 text-tiny md:text-medium text-white py-2 px-4 rounded-full w-full">
               Movers + Truck
             </button>
-            <p className="text-gray-500 mt-2 text-tiny md:text-md">
+            <p className="text-gray-500 mt-2 text-tiny md:text-medium">
               Save more time with a truck
             </p>
           </div>
