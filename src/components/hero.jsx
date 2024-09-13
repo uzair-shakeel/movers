@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast"; // Import react-hot-toast
 
 const Hero = ({ heading, para }) => {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedTab, setSelectedTab] = useState("Loading");
+  const navigate = useNavigate();
 
   // State for input fields
   const [loadingZip, setLoadingZip] = useState("");
@@ -18,6 +21,28 @@ const Hero = ({ heading, para }) => {
     setSelectedTab("Loading"); // Reset tab to Loading when changing service
   };
 
+  const handleNavigation = () => {
+    if (selectedTab === "Loading") {
+      if (!loadingZip || !loadingDate) {
+        toast.error("Please fill in all loading fields.");
+        return;
+      }
+    } else if (selectedTab === "Unloading") {
+      if (!unloadingZip || !unloadingDate) {
+        toast.error("Please fill in all unloading fields.");
+        return;
+      }
+    } else if (selectedTab === "Both") {
+      if (!loadingZip || !loadingDate || !unloadingZip || !unloadingDate) {
+        toast.error(
+          "Please fill in all fields for both loading and unloading."
+        );
+        return;
+      }
+    }
+    navigate("questions");
+  };
+
   return (
     <section className="flex flex-col items-center py-12">
       <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">
@@ -26,9 +51,11 @@ const Hero = ({ heading, para }) => {
       <p className="text-center text-gray-600 mb-8">{para}</p>
 
       <div className="flex flex-col items-center w-full">
-        <h2 className="text-lg font-medium text-center mb-6">
-          Select a Service
-        </h2>
+        {!selectedService && (
+          <h2 className="text-lg font-medium text-center mb-6">
+            Select a Service
+          </h2>
+        )}
 
         {selectedService === null && (
           <div className="flex flex-row max-w-4xl p-4 justify-center items-center gap-6">
@@ -238,7 +265,10 @@ const Hero = ({ heading, para }) => {
                   </div>
 
                   {/* Compare Mover Prices Button */}
-                  <button className="bg-blue-500 text-white py-2 px-4 rounded-full mt-6 w-full">
+                  <button
+                    onClick={handleNavigation}
+                    className="bg-blue-500 text-white py-2 px-4 rounded-full mt-6 w-full"
+                  >
                     Compare Mover Prices
                   </button>
                 </div>

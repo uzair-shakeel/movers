@@ -30,3 +30,15 @@
 .slick-dots li {
   margin: 0 5px; /* Space between dots */
 }
+
+/* Hide arrows for input type="number" */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
