@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { FaPlus, FaMinus } from "react-icons/fa"; // Import icons
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const ResultPage = () => {
   const { state } = useLocation();
@@ -29,12 +29,14 @@ const ResultPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <h1 className="text-xl font-bold mb-14">Your Moving Price Estimate</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-16">
+      <h1 className="text-xl font-bold mb-8 lg:mb-14">
+        Your Moving Price Estimate
+      </h1>
 
       {/* Movers Input */}
-      <div className="mb-6 w-full max-w-lg flex justify-between items-center">
-        <label className="block mb-2 text-sm font-medium text-gray-700">
+      <div className="mb-6 w-full max-w-lg flex flex-col sm:flex-row justify-between items-center">
+        <label className="block mb-2 text-lg font-semibold text-gray-700 sm:mb-0">
           Number of Movers:
         </label>
         <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
@@ -61,8 +63,8 @@ const ResultPage = () => {
       </div>
 
       {/* Hours Input */}
-      <div className="mb-6 w-full max-w-lg flex justify-between items-center">
-        <label className="block mb-2 text-sm font-medium text-gray-700">
+      <div className="mb-6 w-full max-w-lg flex flex-col sm:flex-row justify-between items-center">
+        <label className="block mb-2 text-lg font-semibold text-gray-700 sm:mb-0">
           Number of Hours:
         </label>
         <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
@@ -89,8 +91,8 @@ const ResultPage = () => {
       </div>
 
       {/* Trucks Input */}
-      <div className="mb-6 w-full max-w-lg flex justify-between items-center">
-        <label className="block mb-2  text-sm font-medium text-gray-700">
+      <div className="mb-6 w-full max-w-lg flex flex-col sm:flex-row justify-between items-center">
+        <label className="block mb-2 text-lg font-semibold text-gray-700 sm:mb-0">
           Number of Trucks:
         </label>
         <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
@@ -117,15 +119,15 @@ const ResultPage = () => {
       </div>
 
       {/* Total Price Display */}
-      <div className="text-lg font-semibold my-14">
+      <div className="text-xl font-semibold my-8 lg:my-14">
         Total Price:{" "}
         <span className="font-bold text-3xl text-blue-600 ">
-          {" "}
           €{price.toFixed(2)}
         </span>
       </div>
 
-      <div className="border-t border-gray-300 fixed max-w-lg mx-auto flex py-3 items-center justify-between bottom-0 w-full bg-white">
+      {/* Footer Actions */}
+      <div className="border-t border-gray-300 fixed max-w-lg mx-auto flex py-3 items-center justify-between bottom-0 w-full bg-white px-4">
         <button
           onClick={() => navigate(-1)}
           className="text-blue-600 flex items-center"
@@ -147,14 +149,12 @@ const ResultPage = () => {
           Back
         </button>
 
-        <div className="flex flex-col py-3 items-center justify-center">
-          <button
-            onClick={handleGetMovers}
-            className="bg-blue-600 text-white px-5 py-1 rounded-full text-lg hover:bg-blue-700 transition"
-          >
-            Get Movers Now
-          </button>
-        </div>
+        <button
+          onClick={handleGetMovers}
+          className="bg-blue-600 text-white px-5 py-2 rounded-full text-lg hover:bg-blue-700 transition"
+        >
+          Get Movers Now
+        </button>
       </div>
     </div>
   );
