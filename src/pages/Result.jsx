@@ -30,7 +30,7 @@ const ResultPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <h1 className="text-xl font-bold mb-4">Your Moving Price Estimate</h1>
+      <h1 className="text-xl font-bold mb-14">Your Moving Price Estimate</h1>
 
       {/* Movers Input */}
       <div className="mb-6 w-full max-w-lg flex justify-between items-center">
@@ -117,8 +117,12 @@ const ResultPage = () => {
       </div>
 
       {/* Total Price Display */}
-      <div className="text-lg font-semibold mb-24">
-        Total Price: <span className="font-bold"> €{price.toFixed(2)}</span>
+      <div className="text-lg font-semibold my-14">
+        Total Price:{" "}
+        <span className="font-bold text-3xl text-blue-600 ">
+          {" "}
+          €{price.toFixed(2)}
+        </span>
       </div>
 
       <div className="border-t border-gray-300 fixed max-w-lg mx-auto flex py-3 items-center justify-between bottom-0 w-full bg-white">

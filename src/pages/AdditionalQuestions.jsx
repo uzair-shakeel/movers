@@ -246,7 +246,7 @@ const InitialQuestions = () => {
         )}
 
         {/* Navigation Buttons */}
-        <div className="border-t border-gray-300 fixed bottom-0 right-0 left-0  w-full bg-white">
+        <div className="border-t px-4 border-gray-300 fixed bottom-0 right-0 left-0  w-full bg-white">
           <div className="flex justify-between  items-center py-6 max-w-lg mx-auto">
             <button
               onClick={() => navigate(-1)} // Go back to the previous page

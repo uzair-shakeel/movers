@@ -107,7 +107,7 @@ const Hero = ({ heading, para }) => {
 
         {selectedService === "Movers Only" && (
           <div className="w-full max-w-3xl p-6 bg-white rounded-lg border border-gray-300">
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <div className="flex flex-col justify-between">
                 <div>
                   <button
@@ -120,7 +120,7 @@ const Hero = ({ heading, para }) => {
                     Go Back
                   </button>
                 </div>
-                <div className="bg-white md:w-[250px] rounded-lg p-3 md:p-6 text-center cursor-pointer border-[1.3px] border-blue-400">
+                <div className="bg-white hidden md:block md:w-[250px] rounded-lg p-3 md:p-6 text-center cursor-pointer border-[1.3px] border-blue-400">
                   <div className="h-24 w-24 md:h-[120px] pb-6 md:w-[120px] overflow-hidden mx-auto my-4">
                     <img
                       src="/cta-labor2.webp"
@@ -145,7 +145,7 @@ const Hero = ({ heading, para }) => {
                   <div className="flex flex-row gap-4">
                     <button
                       onClick={() => setSelectedTab("Loading")}
-                      className={`py-2 px-4 rounded-full €{
+                      className={`py-2 px-4 rounded-full ${
                         selectedTab === "Loading"
                           ? "bg-gray-800 text-white"
                           : "border-gray-800 border text-gray-800"
@@ -155,7 +155,7 @@ const Hero = ({ heading, para }) => {
                     </button>
                     <button
                       onClick={() => setSelectedTab("Unloading")}
-                      className={`py-2 px-4 rounded-full €{
+                      className={`py-2 px-4 rounded-full ${
                         selectedTab === "Unloading"
                           ? "bg-gray-800 text-white"
                           : "border-gray-800 border text-gray-800"
@@ -165,7 +165,7 @@ const Hero = ({ heading, para }) => {
                     </button>
                     <button
                       onClick={() => setSelectedTab("Both")}
-                      className={`py-2 px-4 rounded-full €{
+                      className={`py-2 px-4 rounded-full ${
                         selectedTab === "Both"
                           ? "bg-gray-800 text-white"
                           : "border-gray-800 border text-gray-800"
@@ -285,7 +285,7 @@ const Hero = ({ heading, para }) => {
 
         {selectedService === "Movers + Truck" && (
           <div className="w-full max-w-3xl p-6 bg-white rounded-lg border border-gray-300">
-            <div className="flex gap-4">
+            <div className="flex md:flex-row flex-col gap-4">
               <div className="flex flex-col justify-between">
                 <div>
                   <button
@@ -299,7 +299,7 @@ const Hero = ({ heading, para }) => {
                   </button>
                 </div>
 
-                <div className="bg-white md:w-[250px] rounded-lg p-3 md:p-6 text-center cursor-pointer border-[1.3px] border-blue-400">
+                <div className="bg-white hidden md:block md:w-[250px] rounded-lg p-3 md:p-6 text-center cursor-pointer border-[1.3px] border-blue-400">
                   <div className="h-24 w-24 md:h-[120px] pb-6 md:w-[120px] overflow-hidden mx-auto my-4">
                     <img
                       src="/cta-mpt.webp"
