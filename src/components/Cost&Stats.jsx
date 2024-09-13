@@ -8,9 +8,9 @@ const stats = [
   {
     id: 1,
     question: "How much do movers cost?",
-    answer: "$492",
+    answer: "€492",
     description:
-      "Hiring a moving company costs $492 on average. Get your personalized moving quote.",
+      "Hiring a moving company costs €492 on average. Get your personalized moving quote.",
     link: "#",
   },
   {
@@ -33,7 +33,7 @@ const stats = [
 const CustomPrevArrow = (props) => {
   const { className, onClick } = props;
   return (
-    <div className={`${className} custom-arrow`} onClick={onClick}>
+    <div className={`€{className} custom-arrow`} onClick={onClick}>
       <FaChevronLeft size={24} className="text-blue-700" />
     </div>
   );
@@ -42,7 +42,7 @@ const CustomPrevArrow = (props) => {
 const CustomNextArrow = (props) => {
   const { className, onClick } = props;
   return (
-    <div className={`${className} custom-arrow`} onClick={onClick}>
+    <div className={`€{className} custom-arrow`} onClick={onClick}>
       <FaChevronRight size={24} className="text-blue-700" />
     </div>
   );

@@ -40,7 +40,13 @@ const Hero = ({ heading, para }) => {
         return;
       }
     }
-    navigate("questions");
+    if (selectedService === "Movers Only") {
+      navigate("/questions");
+    } else {
+      navigate("/initialQuestions");
+    }
+
+    // navigate("/questions", { state: selectedService });
   };
 
   return (
@@ -139,7 +145,7 @@ const Hero = ({ heading, para }) => {
                   <div className="flex flex-row gap-4">
                     <button
                       onClick={() => setSelectedTab("Loading")}
-                      className={`py-2 px-4 rounded-full ${
+                      className={`py-2 px-4 rounded-full €{
                         selectedTab === "Loading"
                           ? "bg-gray-800 text-white"
                           : "border-gray-800 border text-gray-800"
@@ -149,7 +155,7 @@ const Hero = ({ heading, para }) => {
                     </button>
                     <button
                       onClick={() => setSelectedTab("Unloading")}
-                      className={`py-2 px-4 rounded-full ${
+                      className={`py-2 px-4 rounded-full €{
                         selectedTab === "Unloading"
                           ? "bg-gray-800 text-white"
                           : "border-gray-800 border text-gray-800"
@@ -159,7 +165,7 @@ const Hero = ({ heading, para }) => {
                     </button>
                     <button
                       onClick={() => setSelectedTab("Both")}
-                      className={`py-2 px-4 rounded-full ${
+                      className={`py-2 px-4 rounded-full €{
                         selectedTab === "Both"
                           ? "bg-gray-800 text-white"
                           : "border-gray-800 border text-gray-800"
@@ -353,7 +359,10 @@ const Hero = ({ heading, para }) => {
 
                   {/* Compare Mover Prices Button */}
                   <div>
-                    <button className="bg-blue-500 text-white py-2 px-4 rounded-full mt-6 w-full">
+                    <button
+                      onClick={handleNavigation}
+                      className="bg-blue-500 text-white py-2 px-4 rounded-full mt-6 w-full"
+                    >
                       Compare Mover Prices
                     </button>
                   </div>

@@ -26,7 +26,7 @@ const ReviewCard = ({
           {[...Array(5)].map((_, i) => (
             <svg
               key={i}
-              className={`w-5 h-5 ${
+              className={`w-5 h-5 €{
                 i < rating ? "text-green-500" : "text-gray-300"
               }`}
               fill="currentColor"
@@ -41,7 +41,7 @@ const ReviewCard = ({
       <div className="flex items-center justify-center mb-2">
         {/* <img
           src="https://via.placeholder.com/50" // Replace with dynamic image source
-          alt={`${reviewer} profile`}
+          alt={`€{reviewer} profile`}
           className="w-12 h-12 rounded-full mr-3"
         /> */}
         <div className="flex flex-col justify-center items-center">
@@ -55,7 +55,7 @@ const ReviewCard = ({
           Helpers: <span className="font-bold">{helpers}</span>
         </div>
         <div>
-          Cost: <span className="font-bold">${cost}</span>
+          Cost: <span className="font-bold">€{cost}</span>
         </div>
         <div>
           Vehicle: <span className="font-bold">{vehicle}</span>

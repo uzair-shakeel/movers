@@ -118,7 +118,7 @@ const ResultPage = () => {
 
       {/* Total Price Display */}
       <div className="text-lg font-semibold mb-24">
-        Total Price: <span className="font-bold"> ${price.toFixed(2)}</span>
+        Total Price: <span className="font-bold"> €{price.toFixed(2)}</span>
       </div>
 
       <div className="border-t border-gray-300 fixed max-w-lg mx-auto flex py-3 items-center justify-between bottom-0 w-full bg-white">
