@@ -91,7 +91,7 @@ const MovingForm = () => {
       </h2>
 
       {/* Arrival Time Section */}
-      <div className="mb-4">
+      <div className="mb-8">
         <label className="block mb-2 font-medium">Arrival Time</label>
         <input
           type="date"
@@ -109,7 +109,7 @@ const MovingForm = () => {
 
       {/* Loading Location Section */}
       {tab === "Loading" && (
-        <div className="mb-4">
+        <div className="mb-8">
           <label className="block mb-2 font-medium">Loading location</label>
           <input
             type="text"
@@ -178,7 +178,7 @@ const MovingForm = () => {
 
       {/* Unloading Address Section */}
       {tab === "Unloading" && (
-        <div className="mb-4">
+        <div className="mb-8">
           <label className="block mb-2 font-medium">Unloading Address</label>
           <input
             type="text"
@@ -265,7 +265,7 @@ const MovingForm = () => {
 
       {tab === "Both" && (
         <>
-          <div className="mb-4">
+          <div className="mb-8">
             <label className="block mb-2 font-medium">Loading location</label>
             <input
               type="text"
@@ -338,7 +338,7 @@ const MovingForm = () => {
               </select>
             </div>
           </div>
-          <div className="mb-4">
+          <div className="mb-8">
             <label className="block mb-2 font-medium">Unloading Address</label>
             <input
               type="text"
