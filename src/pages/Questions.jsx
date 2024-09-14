@@ -249,7 +249,7 @@ const Questions = () => {
             onClick={handleSubmit}
             className="bg-blue-600 text-white px-4 py-2 rounded-full flex items-center"
           >
-            See Movers
+            Continue
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

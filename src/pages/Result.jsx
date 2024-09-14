@@ -152,9 +152,23 @@ const ResultPage = () => {
 
         <button
           onClick={handleGetMovers}
-          className="bg-blue-600 text-white px-5 py-2 rounded-full text-lg hover:bg-blue-700 transition"
+          className="bg-blue-600 flex items-center text-white px-5 py-2 rounded-full text-lg hover:bg-blue-700 transition"
         >
-          Get Movers Now
+          Continue
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5 ml-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
         </button>
       </div>
     </div>
