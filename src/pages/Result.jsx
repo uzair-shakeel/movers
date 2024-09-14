@@ -5,6 +5,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 const ResultPage = () => {
   const { state } = useLocation();
+  const service = JSON.parse(localStorage.getItem("service"));
   const navigate = useNavigate();
 
   const [movers, setMovers] = useState(1);
@@ -24,8 +25,7 @@ const ResultPage = () => {
     setHours(1);
     setTrucks(1);
     setPrice(0);
-    toast.success("Movers booked! Redirecting to home...");
-    navigate("/");
+    navigate("/form");
   };
 
   return (
@@ -90,33 +90,34 @@ const ResultPage = () => {
         </div>
       </div>
 
-      {/* Trucks Input */}
-      <div className="mb-6 w-full max-w-lg flex flex-col sm:flex-row justify-between items-center">
-        <label className="block mb-2 text-lg font-semibold text-gray-700 sm:mb-0">
-          Number of Trucks:
-        </label>
-        <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-          <button
-            onClick={() => setTrucks(trucks > 1 ? trucks - 1 : 1)}
-            className="px-3 py-1 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          >
-            <FaMinus />
-          </button>
-          <input
-            type="number"
-            value={trucks}
-            onChange={(e) => setTrucks(parseInt(e.target.value))}
-            className="w-16 text-center border-none focus:ring-0"
-            min="1"
-          />
-          <button
-            onClick={() => setTrucks(trucks + 1)}
-            className="px-3 py-1 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          >
-            <FaPlus />
-          </button>
+      {service === "Movers + Truck" && (
+        <div className="mb-6 w-full max-w-lg flex flex-col sm:flex-row justify-between items-center">
+          <label className="block mb-2 text-lg font-semibold text-gray-700 sm:mb-0">
+            Number of Trucks:
+          </label>
+          <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+            <button
+              onClick={() => setTrucks(trucks > 1 ? trucks - 1 : 1)}
+              className="px-3 py-1 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            >
+              <FaMinus />
+            </button>
+            <input
+              type="number"
+              value={trucks}
+              onChange={(e) => setTrucks(parseInt(e.target.value))}
+              className="w-16 text-center border-none focus:ring-0"
+              min="1"
+            />
+            <button
+              onClick={() => setTrucks(trucks + 1)}
+              className="px-3 py-1 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            >
+              <FaPlus />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Total Price Display */}
       <div className="text-xl font-semibold my-8 lg:my-14">

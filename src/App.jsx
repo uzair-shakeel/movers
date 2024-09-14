@@ -6,6 +6,7 @@ import Questions from "./pages/Questions";
 import AdditionalQuestions from "./pages/AdditionalQuestions";
 import "./App.css";
 import ResultPage from "./pages/Result";
+import MovingForm from "./pages/form";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/initialQuestions" element={<AdditionalQuestions />} />
         <Route path="/questions" element={<Questions />} />
         <Route path="/result" element={<ResultPage />} />
+        <Route path="/form" element={<MovingForm />} />
       </Routes>
     </Router>
   );

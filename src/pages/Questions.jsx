@@ -30,7 +30,7 @@ const Questions = () => {
       {/* Header */}
 
       {/* Heavy Items Question */}
-      <div className="mb-8 mt-14 w-full max-w-lg">
+      <div className="mb-8 mt-10 w-full max-w-lg">
         <h2 className="text-lg font-semibold mb-1">Is there a lift? </h2>
 
         {/* Radio Buttons */}
@@ -128,7 +128,7 @@ const Questions = () => {
           carefully, and safely.
         </p>
         {/* Radio Buttons */}
-        <div className="space-y-4">
+        <div className={`space-y-4 ${over300lbs === "yes" ? "" : "mb-20"}`}>
           <div
             onClick={() => setOver300lbs("yes")}
             className={`flex items-center p-3 rounded-md border-[1.8px] cursor-pointer ${
@@ -179,47 +179,48 @@ const Questions = () => {
         </div>
       </div>
 
-      {/* Heavy Items Dropdowns */}
-      <div className="w-full max-w-lg mb-40">
-        <h2 className="text-sm font-medium text-gray-700 mb-2">
-          Please specify the type of heavy items you have:
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[
-            { label: "100-150 lbs?", values: ["None", "1 item", "2 items"] },
-            { label: "150-200 lbs?", values: ["None", "1 item", "2 items"] },
-            { label: "Over 200 lbs?", values: ["None", "1 item", "2 items"] },
-            {
-              label: "Baby/Grand Pianos?",
-              values: ["None", "1 piano", "2 pianos"],
-            },
-            {
-              label: "Upright Pianos?",
-              values: ["None", "1 piano", "2 pianos"],
-            },
-          ].map(({ label, values }) => (
-            <div key={label}>
-              <label
-                htmlFor={label}
-                className="block text-[12px] font-bold text-center text-gray-900 mb-1"
-                style={{ minHeight: "15px" }} // Ensures consistent height
-              >
-                {label}
-              </label>
-              <select
-                id={label}
-                className="block w-full border  rounded-lg px-4 py-2 text-sm focus:outline-none  border-blue-300"
-              >
-                {values.map((value) => (
-                  <option key={value} value={value}>
-                    {value}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
+      {over300lbs === "yes" && (
+        <div className={`w-full max-w-lg mb-40`}>
+          <h2 className="text-sm font-medium text-gray-700 mb-2">
+            Please specify the type of heavy items you have:
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { label: "100-150 lbs?", values: ["None", "1 item", "2 items"] },
+              { label: "150-200 lbs?", values: ["None", "1 item", "2 items"] },
+              { label: "Over 200 lbs?", values: ["None", "1 item", "2 items"] },
+              {
+                label: "Baby/Grand Pianos?",
+                values: ["None", "1 piano", "2 pianos"],
+              },
+              {
+                label: "Upright Pianos?",
+                values: ["None", "1 piano", "2 pianos"],
+              },
+            ].map(({ label, values }) => (
+              <div key={label}>
+                <label
+                  htmlFor={label}
+                  className="block text-[12px] font-bold text-center text-gray-900 mb-1"
+                  style={{ minHeight: "15px" }} // Ensures consistent height
+                >
+                  {label}
+                </label>
+                <select
+                  id={label}
+                  className="block w-full border  rounded-lg px-4 py-2 text-sm focus:outline-none  border-blue-300"
+                >
+                  {values.map((value) => (
+                    <option key={value} value={value}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Navigation Buttons */}
       <div className="border-t px-4 border-gray-300 fixed bottom-0 w-full bg-white">

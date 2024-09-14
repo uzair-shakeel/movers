@@ -3,6 +3,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast"; // Import react-hot-toast
+import { select } from "@nextui-org/react";
 
 const Hero = ({ heading, para }) => {
   const [selectedService, setSelectedService] = useState(null);
@@ -40,6 +41,8 @@ const Hero = ({ heading, para }) => {
         return;
       }
     }
+    localStorage.setItem("service", JSON.stringify(selectedService));
+    localStorage.setItem("tab", JSON.stringify(selectedTab));
     if (selectedService === "Movers Only") {
       navigate("/questions");
     } else {
@@ -270,12 +273,12 @@ const Hero = ({ heading, para }) => {
                     )}
                   </div>
 
-                  {/* Compare Mover Prices Button */}
+                  {/* Find the right mover Button */}
                   <button
                     onClick={handleNavigation}
                     className="bg-blue-500 text-white py-2 px-4 rounded-full mt-6 w-full"
                   >
-                    Compare Mover Prices
+                    Find the right mover
                   </button>
                 </div>
               </div>
@@ -357,13 +360,13 @@ const Hero = ({ heading, para }) => {
                     </div>
                   </div>
 
-                  {/* Compare Mover Prices Button */}
+                  {/* Find the right mover Button */}
                   <div>
                     <button
                       onClick={handleNavigation}
                       className="bg-blue-500 text-white py-2 px-4 rounded-full mt-6 w-full"
                     >
-                      Compare Mover Prices
+                      Find the right mover
                     </button>
                   </div>
                 </div>

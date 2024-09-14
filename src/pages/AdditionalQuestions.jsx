@@ -129,7 +129,11 @@ const InitialQuestions = () => {
           </select>
         </div>
 
-        <div className="mb-8 mt-14 w-full max-w-lg">
+        <div
+          className={`${
+            parking === "no" ? "mb-8" : "mb-[120px]"
+          }  mt-14 w-full max-w-lg`}
+        >
           <h2 className="text-lg font-semibold mb-1">
             Is there parking available for my Truck?{" "}
           </h2>
