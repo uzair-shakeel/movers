@@ -267,11 +267,161 @@ const MovingForm = () => {
         <>
           <div className="mb-4">
             <label className="block mb-2 font-medium">Loading location</label>
-            {/* Similar to Loading Address fields */}
+            <input
+              type="text"
+              placeholder="Street Address"
+              value={loadingAddress.street}
+              onChange={(e) =>
+                setLoadingAddress({ ...loadingAddress, street: e.target.value })
+              }
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="text"
+              placeholder="Apartment, Suite, etc."
+              value={loadingAddress.apt}
+              onChange={(e) =>
+                setLoadingAddress({ ...loadingAddress, apt: e.target.value })
+              }
+              className="w-full p-2 border border-gray-300 rounded mt-2"
+            />
+            <div className="grid grid-cols-3 gap-2 mt-2">
+              <input
+                type="text"
+                placeholder="City or Town"
+                value={loadingAddress.city}
+                onChange={(e) =>
+                  setLoadingAddress({ ...loadingAddress, city: e.target.value })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder="State"
+                value={loadingAddress.state}
+                onChange={(e) =>
+                  setLoadingAddress({
+                    ...loadingAddress,
+                    state: e.target.value,
+                  })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder="ZIP Code"
+                value={loadingAddress.zip}
+                onChange={(e) =>
+                  setLoadingAddress({ ...loadingAddress, zip: e.target.value })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+            </div>
+            <div className="mt-2">
+              <label className="block mb-2 font-medium">
+                Flights of Stairs
+              </label>
+              <select
+                value={loadingAddress.stairs}
+                onChange={(e) =>
+                  setLoadingAddress({
+                    ...loadingAddress,
+                    stairs: e.target.value,
+                  })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              >
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
           </div>
           <div className="mb-4">
             <label className="block mb-2 font-medium">Unloading Address</label>
-            {/* Similar to Unloading Address fields */}
+            <input
+              type="text"
+              placeholder="Street Address"
+              value={unloadingAddress.street}
+              onChange={(e) =>
+                setUnloadingAddress({
+                  ...unloadingAddress,
+                  street: e.target.value,
+                })
+              }
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="text"
+              placeholder="Apartment, Suite, etc."
+              value={unloadingAddress.apt}
+              onChange={(e) =>
+                setUnloadingAddress({
+                  ...unloadingAddress,
+                  apt: e.target.value,
+                })
+              }
+              className="w-full p-2 border border-gray-300 rounded mt-2"
+            />
+            <div className="grid grid-cols-3 gap-2 mt-2">
+              <input
+                type="text"
+                placeholder="City or Town"
+                value={unloadingAddress.city}
+                onChange={(e) =>
+                  setUnloadingAddress({
+                    ...unloadingAddress,
+                    city: e.target.value,
+                  })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder="State"
+                value={unloadingAddress.state}
+                onChange={(e) =>
+                  setUnloadingAddress({
+                    ...unloadingAddress,
+                    state: e.target.value,
+                  })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder="ZIP Code"
+                value={unloadingAddress.zip}
+                onChange={(e) =>
+                  setUnloadingAddress({
+                    ...unloadingAddress,
+                    zip: e.target.value,
+                  })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+            </div>
+            <div className="mt-2">
+              <label className="block mb-2 font-medium">
+                Flights of Stairs
+              </label>
+              <select
+                value={unloadingAddress.stairs}
+                onChange={(e) =>
+                  setUnloadingAddress({
+                    ...unloadingAddress,
+                    stairs: e.target.value,
+                  })
+                }
+                className="w-full p-2 border border-gray-300 rounded"
+              >
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
           </div>
         </>
       )}
