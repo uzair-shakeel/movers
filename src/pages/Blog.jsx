@@ -17,9 +17,9 @@ const Blog = () => {
   const [unloadingZip, setUnloadingZip] = useState("");
 
   const handleNavigation = () => {
-    localStorage.setItem("service", JSON.stringify(selectedService));
-    localStorage.setItem("tab", JSON.stringify(selectedTab));
-    if (selectedService === "Movers Only") {
+    localStorage.setItem("service", JSON.stringify(serviceType));
+    localStorage.setItem("tab", JSON.stringify(loadingType));
+    if (serviceType === "Movers Only") {
       navigate("/questions");
     } else {
       navigate("/initialQuestions");
