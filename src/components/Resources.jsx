@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 const resources = [
   {
@@ -64,9 +65,12 @@ const Resources = () => {
                   />
                 </CardHeader>
                 <CardBody className="overflow-visible py-2 ">
-                  <p className="text-tiny uppercase font-bold hover:text-blue-500 duration-150 cursor-pointer">
+                  <Link
+                    to={"/blog"}
+                    className="text-tiny uppercase font-bold hover:text-blue-500 duration-150 cursor-pointer"
+                  >
                     Read more
-                  </p>
+                  </Link>
                   <small className="text-default-500">{resource.date}</small>
                   <h4 className="font-bold text-large">{resource.title}</h4>
                 </CardBody>
