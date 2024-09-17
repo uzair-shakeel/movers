@@ -65,12 +65,15 @@ const Blog = () => {
           <FaArrowLeftLong /> Go Back
         </button>
       </div>
-      <div className="flex h-[100px] sticky top-0 px-8 justify-between items-center w-full bg-blue-100">
-        <h1 className="text-2xl w-1/6">Select a Service</h1>
-        <div className="w-4/6 flex">
+      <div className="flex flex-col md:flex-row h-auto md:h-[100px] sticky top-0 px-4 md:px-8 justify-between items-start md:items-center w-full bg-blue-100">
+        <h1 className="text-xl md:text-2xl w-full md:w-1/6 mb-4 md:mb-0">
+          Select a Service
+        </h1>
+
+        <div className="w-full md:w-4/6 flex flex-col md:flex-row">
           {/* Service Type Dropdown */}
           <select
-            className="border rounded-md p-3 mr-4 w-full focus:outline-none"
+            className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full md:w-full focus:outline-none"
             value={serviceType}
             onChange={(e) => setServiceType(e.target.value)}
           >
@@ -81,7 +84,7 @@ const Blog = () => {
           {/* Loading/Unloading Dropdown (Only for Movers Only) */}
           {serviceType === "Movers Only" && (
             <select
-              className="border rounded-md p-3 mr-4 w-full focus:outline-none"
+              className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
               value={loadingType}
               onChange={(e) => setLoadingType(e.target.value)}
             >
@@ -96,7 +99,7 @@ const Blog = () => {
             <>
               <input
                 type="date"
-                className="border rounded-md p-3 w-full focus:outline-none"
+                className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
                 value={loadingDate}
                 onChange={(e) => setLoadingDate(e.target.value)}
                 placeholder="Loading Date"
@@ -115,7 +118,7 @@ const Blog = () => {
             <>
               <input
                 type="date"
-                className="border rounded-md p-3 w-full focus:outline-none"
+                className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
                 value={unloadingDate}
                 onChange={(e) => setUnloadingDate(e.target.value)}
                 placeholder="Unloading Date"
@@ -134,21 +137,21 @@ const Blog = () => {
             <>
               <input
                 type="date"
-                className="border rounded-md p-3 w-full focus:outline-none"
+                className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
                 value={loadingDate}
                 onChange={(e) => setLoadingDate(e.target.value)}
                 placeholder="Loading Date"
               />
               <input
                 type="text"
-                className="border rounded-md p-3 w-full focus:outline-none"
+                className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
                 value={loadingZip}
                 onChange={(e) => setLoadingZip(e.target.value)}
                 placeholder="Loading ZIP Code"
               />
               <input
                 type="date"
-                className="border rounded-md p-3 w-full focus:outline-none"
+                className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
                 value={unloadingDate}
                 onChange={(e) => setUnloadingDate(e.target.value)}
                 placeholder="Unloading Date"
@@ -168,14 +171,14 @@ const Blog = () => {
             <>
               <input
                 type="date"
-                className="border rounded-md p-3 w-full focus:outline-none"
+                className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
                 value={loadingDate}
                 onChange={(e) => setLoadingDate(e.target.value)}
                 placeholder="Date"
               />
               <input
                 type="text"
-                className="border rounded-md p-3 w-full focus:outline-none"
+                className="border rounded-md p-3 mb-4 md:mb-0 mr-0 md:mr-4 w-full focus:outline-none"
                 value={loadingZip}
                 onChange={(e) => setLoadingZip(e.target.value)}
                 placeholder="Loading ZIP Code"
@@ -194,7 +197,7 @@ const Blog = () => {
         {/* Button */}
         <button
           onClick={handleNavigation}
-          className={`bg-blue-500 w-1/6 mx-4 text-white py-2 px-4 rounded-full ${
+          className={`bg-blue-500 w-full md:w-1/6 mx-0 md:mx-4 text-white py-2 px-4 rounded-full ${
             !isFormValid() && "opacity-50 cursor-not-allowed"
           }`}
           disabled={!isFormValid()}
@@ -203,14 +206,14 @@ const Blog = () => {
         </button>
       </div>
 
-      <div className="py-8 px-12">
+      <div className="py-8 px-7 lg:px-12">
         <h1
-          className="text-3xl font-[900] uppercase text-center py-12 w-3/4 mx-auto
+          className="text-3xl font-[900] uppercase text-center py-12 md:w-3/4 mx-auto
       "
         >
           Tipps für den Umzug in eine Wohnung ohne Aufzug
         </h1>
-        <p className="w-2/3 mx-auto mb-12 text-justify text-xl leading-8">
+        <p className="md:w-2/3 mx-auto mb-12 text-justify text-xl leading-8">
           Sie haben die perfekte Wohnung gefunden. Die Miete stimmt, die
           Nachbarschaft fühlt sich wie zu Hause an und die Aussicht ist mehr,
           als Sie sich wünschen können. Es gibt nur ein kleines Problem – keinen
@@ -219,7 +222,7 @@ const Blog = () => {
           ohne Aufzug zum Erfolg oder Misserfolg machen können, insbesondere
           wenn Sie alleine sind.
         </p>
-        <div className="w-2/3 mx-auto">
+        <div className="md:w-2/3 mx-auto">
           <div className="h-[400px] w-full bg-black overflow-hidden">
             <img
               src="/blog-heading.jpg"
@@ -233,7 +236,7 @@ const Blog = () => {
           >
             Planen Sie Ihren Umzug in eine Wohnung ohne Aufzug wie ein Profi
           </h2>
-          <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+          <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
             Ein solider Plan kann Ihnen buchstäblich jede Menge Ärger ersparen.
             Nehmen Sie sich Zeit, um den Umzug zu planen. Vertrauen Sie uns, es
             gibt nichts Schlimmeres, als wenn Ihr Sofa auf halber Treppe stecken
@@ -247,7 +250,7 @@ const Blog = () => {
             >
               Ihre Möbel abmessen{" "}
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Erstellen Sie eine Liste aller großen Gegenstände, die Sie
               umziehen möchten. Messen Sie ihre Abmessungen, einschließlich
               Höhe, Breite und Tiefe. Vergessen Sie nicht, auch alle abnehmbaren
@@ -259,7 +262,7 @@ const Blog = () => {
             >
               Türöffnungen und Treppenhäuser abmessen
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Gehen Sie mit einem Maßband zu Ihrem neuen Zuhause. Messen Sie die
               Breite und Höhe von Türöffnungen, die Breite von Fluren und die
               Abmessungen der Treppenhäuser, einschließlich aller Podeste oder
@@ -271,7 +274,7 @@ const Blog = () => {
             >
               Die Maße vergleichen{" "}
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Stellen Sie sicher, dass Ihre Möbel durch alle diese Räume passen.
               Wenn etwas zu eng erscheint, versuchen Sie, es nach Möglichkeit
               auseinanderzunehmen. Wenn Sie beispielsweise die Beine von einem
@@ -282,14 +285,14 @@ const Blog = () => {
         </div>
       </div>
       <Hero heading=" " para=" " />
-      <div className="py-8 px-12">
+      <div className="py-8 px-7 lg:px-12">
         <h1
-          className="text-3xl font-[900] uppercase text-center py-12 w-3/4 mx-auto
+          className="text-3xl font-[900] uppercase text-center py-12 md:w-3/4 mx-auto
       "
         >
           Tipps für den Umzug in eine Wohnung ohne Aufzug
         </h1>
-        <p className="w-2/3 mx-auto mb-12 text-justify text-xl leading-8">
+        <p className="md:w-2/3 mx-auto mb-12 text-justify text-xl leading-8">
           Sie haben die perfekte Wohnung gefunden. Die Miete stimmt, die
           Nachbarschaft fühlt sich wie zu Hause an und die Aussicht ist mehr,
           als Sie sich wünschen können. Es gibt nur ein kleines Problem – keinen
@@ -298,7 +301,7 @@ const Blog = () => {
           ohne Aufzug zum Erfolg oder Misserfolg machen können, insbesondere
           wenn Sie alleine sind.
         </p>
-        <div className="w-2/3 mx-auto">
+        <div className="md:w-2/3 mx-auto">
           <div className="h-[400px] w-full bg-black overflow-hidden">
             <img
               src="/blog-heading2.png"
@@ -312,7 +315,7 @@ const Blog = () => {
           >
             Planen Sie Ihren Umzug in eine Wohnung ohne Aufzug wie ein Profi
           </h2>
-          <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+          <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
             Ein solider Plan kann Ihnen buchstäblich jede Menge Ärger ersparen.
             Nehmen Sie sich Zeit, um den Umzug zu planen. Vertrauen Sie uns, es
             gibt nichts Schlimmeres, als wenn Ihr Sofa auf halber Treppe stecken
@@ -325,7 +328,7 @@ const Blog = () => {
             >
               Ihre Möbel abmessen{" "}
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Erstellen Sie eine Liste aller großen Gegenstände, die Sie
               umziehen möchten. Messen Sie ihre Abmessungen, einschließlich
               Höhe, Breite und Tiefe. Vergessen Sie nicht, auch alle abnehmbaren
@@ -337,7 +340,7 @@ const Blog = () => {
             >
               Türöffnungen und Treppenhäuser abmessen
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Gehen Sie mit einem Maßband zu Ihrem neuen Zuhause. Messen Sie die
               Breite und Höhe von Türöffnungen, die Breite von Fluren und die
               Abmessungen der Treppenhäuser, einschließlich aller Podeste oder
@@ -349,7 +352,7 @@ const Blog = () => {
             >
               Die Maße vergleichen{" "}
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Stellen Sie sicher, dass Ihre Möbel durch alle diese Räume passen.
               Wenn etwas zu eng erscheint, versuchen Sie, es nach Möglichkeit
               auseinanderzunehmen. Wenn Sie beispielsweise die Beine von einem
@@ -359,14 +362,14 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <div className="py-8 px-12">
+      <div className="py-8 px-7 lg:px-12">
         <h1
-          className="text-3xl font-[900] uppercase text-center py-12 w-3/4 mx-auto
+          className="text-3xl font-[900] uppercase text-center py-12 md:w-3/4 mx-auto
       "
         >
           Tipps für den Umzug in eine Wohnung ohne Aufzug
         </h1>
-        <p className="w-2/3 mx-auto mb-12 text-justify text-xl leading-8">
+        <p className="md:w-2/3 mx-auto mb-12 text-justify text-xl leading-8">
           Sie haben die perfekte Wohnung gefunden. Die Miete stimmt, die
           Nachbarschaft fühlt sich wie zu Hause an und die Aussicht ist mehr,
           als Sie sich wünschen können. Es gibt nur ein kleines Problem – keinen
@@ -375,7 +378,7 @@ const Blog = () => {
           ohne Aufzug zum Erfolg oder Misserfolg machen können, insbesondere
           wenn Sie alleine sind.
         </p>
-        <div className="w-2/3 mx-auto">
+        <div className="md:w-2/3 mx-auto">
           <div className="h-[400px] w-full bg-black overflow-hidden">
             <img
               src="/blog-heading3.png"
@@ -389,7 +392,7 @@ const Blog = () => {
           >
             Planen Sie Ihren Umzug in eine Wohnung ohne Aufzug wie ein Profi
           </h2>
-          <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+          <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
             Ein solider Plan kann Ihnen buchstäblich jede Menge Ärger ersparen.
             Nehmen Sie sich Zeit, um den Umzug zu planen. Vertrauen Sie uns, es
             gibt nichts Schlimmeres, als wenn Ihr Sofa auf halber Treppe stecken
@@ -402,7 +405,7 @@ const Blog = () => {
             >
               Ihre Möbel abmessen{" "}
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Erstellen Sie eine Liste aller großen Gegenstände, die Sie
               umziehen möchten. Messen Sie ihre Abmessungen, einschließlich
               Höhe, Breite und Tiefe. Vergessen Sie nicht, auch alle abnehmbaren
@@ -414,7 +417,7 @@ const Blog = () => {
             >
               Türöffnungen und Treppenhäuser abmessen
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Gehen Sie mit einem Maßband zu Ihrem neuen Zuhause. Messen Sie die
               Breite und Höhe von Türöffnungen, die Breite von Fluren und die
               Abmessungen der Treppenhäuser, einschließlich aller Podeste oder
@@ -426,7 +429,7 @@ const Blog = () => {
             >
               Die Maße vergleichen{" "}
             </h3>
-            <p className="w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
+            <p className="md:w-2/3 mx-auto mb-12 text-justify text-lg leading-8">
               Stellen Sie sicher, dass Ihre Möbel durch alle diese Räume passen.
               Wenn etwas zu eng erscheint, versuchen Sie, es nach Möglichkeit
               auseinanderzunehmen. Wenn Sie beispielsweise die Beine von einem
