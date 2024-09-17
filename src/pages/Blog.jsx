@@ -65,7 +65,7 @@ const Blog = () => {
           <FaArrowLeftLong /> Go Back
         </button>
       </div>
-      <div className="flex flex-col md:flex-row h-auto md:h-[100px] sticky top-0 px-4 md:px-8 justify-between items-start md:items-center w-full bg-blue-100">
+      <div className="flex flex-col md:flex-row h-auto md:h-[100px] md:sticky top-0 px-4 md:px-8 justify-between items-start md:items-center w-full bg-blue-100">
         <h1 className="text-xl md:text-2xl w-full md:w-1/6 mb-4 md:mb-0">
           Select a Service
         </h1>
