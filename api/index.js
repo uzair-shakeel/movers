@@ -7,6 +7,9 @@ require("dotenv").config();
 // Import routes
 const blogRoutes = require("./routes/blog");
 const bookingRoutes = require("./routes/booking");
+const packingMaterialRoutes = require("./routes/packingMaterial");
+const additionalServiceRoutes = require("./routes/additionalServices");
+const basicPricing = require("./routes/basicPricing");
 
 // Initialize express app
 const app = express();
@@ -16,6 +19,9 @@ app.use(bodyParser.json());
 // Routes middleware
 app.use("/api/blogs/", blogRoutes);
 app.use("/api/bookings/", bookingRoutes);
+app.use("/api/pricing/basic", basicPricing);
+app.use("/api/pricing/packing", packingMaterialRoutes);
+app.use("/api/pricing/additional", additionalServiceRoutes);
 
 // MongoDB connection
 mongoose
