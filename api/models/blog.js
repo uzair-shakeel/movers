@@ -1,9 +1,18 @@
 const mongoose = require("mongoose");
 
-const blogSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  content: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
+const sectionSchema = new mongoose.Schema({
+  h1: { type: String, required: true },
+  h2: { type: String, required: true },
+  h3: [{ type: String }],
+  sectionImage: { type: String, required: true },
+  content: [{ type: String }],
 });
 
-module.exports = mongoose.model("Blog", blogSchema);
+const blogPostSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  mainImage: { type: String, required: true },
+  sections: [sectionSchema],
+});
+
+const BlogPost = mongoose.model("BlogPost", blogPostSchema);
+module.exports = BlogPost;

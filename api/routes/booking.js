@@ -3,7 +3,7 @@ const Booking = require("../models/booking");
 const router = express.Router();
 
 // Create a new booking
-router.post("/bookings", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const {
       contactInfo,
@@ -33,7 +33,7 @@ router.post("/bookings", async (req, res) => {
 });
 
 // Fetch all bookings
-router.get("/bookings", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const bookings = await Booking.find();
     res.status(200).json(bookings);

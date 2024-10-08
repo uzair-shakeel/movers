@@ -1,29 +1,28 @@
+// blogRoutes.js
 const express = require("express");
-const Blog = require("../models/blog");
+const {
+  createBlogPost,
+  getBlogPosts,
+  getBlogPostById,
+  updateBlogPost,
+  deleteBlogPost,
+} = require("../controllers/blog");
+
 const router = express.Router();
 
-// Post a new blog
-router.post("/blogs", async (req, res) => {
-  try {
-    const { title, content } = req.body;
-    const newBlog = new Blog({ title, content });
-    await newBlog.save();
-    res
-      .status(201)
-      .json({ message: "Blog created successfully", blog: newBlog });
-  } catch (error) {
-    res.status(500).json({ error: "Failed to create blog" });
-  }
-});
+// Route to create a new blog post
+router.post("/", createBlogPost);
 
-// Get all blogs
-router.get("/blogs", async (req, res) => {
-  try {
-    const blogs = await Blog.find();
-    res.status(200).json(blogs);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to fetch blogs" });
-  }
-});
+// Route to get all blog posts
+router.get("/", getBlogPosts);
+
+// Route to get a specific blog post by ID
+router.get("/:id", getBlogPostById);
+
+// Route to update a blog post
+router.put("/:id", updateBlogPost);
+
+// Route to delete a blog post
+router.delete("/:id", deleteBlogPost);
 
 module.exports = router;

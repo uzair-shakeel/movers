@@ -14,14 +14,15 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes middleware
-app.use("/api", blogRoutes);
-app.use("/api", bookingRoutes);
+app.use("/api/blogs/", blogRoutes);
+app.use("/api/bookings/", bookingRoutes);
 
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 20000, // Increase to 20 seconds
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("Failed to connect to MongoDB:", err));
