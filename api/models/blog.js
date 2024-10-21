@@ -2,8 +2,15 @@ const mongoose = require("mongoose");
 
 const sectionSchema = new mongoose.Schema({
   h1: { type: String, required: true },
+  h1content: { type: String },
   h2: { type: String, required: true },
-  h3: [{ type: String }],
+  h2content: { type: String },
+  h3: [
+    {
+      title: { type: String, required: true },
+      content: { type: String },
+    },
+  ],
   sectionImage: { type: String, required: true },
   content: [{ type: String }],
 });
@@ -11,6 +18,7 @@ const sectionSchema = new mongoose.Schema({
 const blogPostSchema = new mongoose.Schema({
   title: { type: String, required: true },
   mainImage: { type: String, required: true },
+  description: { type: String },
   sections: [sectionSchema],
 });
 

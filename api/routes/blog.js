@@ -6,12 +6,13 @@ const {
   getBlogPostById,
   updateBlogPost,
   deleteBlogPost,
+  uploadBlogImages,
 } = require("../controllers/blog");
 
 const router = express.Router();
 
 // Route to create a new blog post
-router.post("/", createBlogPost);
+router.post("/", uploadBlogImages, createBlogPost);
 
 // Route to get all blog posts
 router.get("/", getBlogPosts);

@@ -1,19 +1,73 @@
-// blogController.js
-const BlogPost = require("../models/blog"); // Adjust the path according to your structure
+const BlogPost = require("../models/blog");
+const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("cloudinary").v2;
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET_KEY,
+});
+
+// Configure Multer storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "BlogPosts",
+    format: async (req, file) => "jpg",
+    public_id: (req, file) => file.originalname,
+  },
+});
+
+const upload = multer({ storage: storage });
+
+// Middleware for image uploads
+const uploadBlogImages = upload.fields([
+  { name: "mainImage", maxCount: 1 }, // Main blog image
+  { name: "sectionImages", maxCount: 10 }, // Section images
+]);
 
 // Create a new blog post
 const createBlogPost = async (req, res) => {
+  console.log("Request body:", req.body); // Debugging line
+
   try {
-    const blogPost = new BlogPost(req.body);
-    console.log(blogPost);
+    const { title, description, sections } = req.body;
+
+    // Get the uploaded mainImage and sectionImages
+    const mainImage = req.files["mainImage"]
+      ? req.files["mainImage"][0].path
+      : null;
+    const sectionImages = req.files["sectionImages"];
+
+    // Parse the sections if sent as a JSON string
+    const parsedSections = JSON.parse(sections);
+
+    // Assign section images to the corresponding sections
+    if (sectionImages && sectionImages.length) {
+      parsedSections.forEach((section, index) => {
+        if (sectionImages[index]) {
+          section.sectionImage = sectionImages[index].path;
+        }
+      });
+    }
+
+    const blogPost = new BlogPost({
+      title,
+      description,
+      mainImage, // Include the main blog image URL
+      sections: parsedSections, // Include sections with their images
+    });
+
     await blogPost.save();
-    console.log(blogPost);
     res.status(201).json(blogPost);
   } catch (error) {
-    console.error("Error saving blog post:", error); // Log detailed error
+    console.error("Error saving blog post:", error);
     res.status(400).json({ message: error.message });
   }
 };
+
 
 // Get all blog posts
 const getBlogPosts = async (req, res) => {
@@ -69,4 +123,5 @@ module.exports = {
   getBlogPostById,
   updateBlogPost,
   deleteBlogPost,
+  uploadBlogImages,
 };
