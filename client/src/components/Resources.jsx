@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const resources = [
   {
@@ -43,6 +44,26 @@ const resources = [
 ];
 
 const Resources = () => {
+  const [blogs, setBlogs] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  console.log("ooo", blogs);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/blogs`);
+        setBlogs(response?.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchBlog();
+  }, []);
+
   return (
     <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,25 +74,31 @@ const Resources = () => {
           Got moving questions? We’ve got moving answers.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {resources.map((resource) => (
+          {blogs?.map((resource) => (
             <div key={resource.id} className="">
               <Card className="py-4 h-[380px]">
                 <CardHeader className="pb-3 pt-2 px-4 flex-col items-start">
                   <div></div>
                   <img
                     alt=""
-                    className="object-cover  h-[170px] w-full  rounded-xl "
-                    src={resource.image}
+                    className="object-cover h-[170px] w-full rounded-xl"
+                    src={resource.mainImage}
                   />
                 </CardHeader>
                 <CardBody className="overflow-visible py-2 ">
                   <Link
-                    to={"/blog"}
+                    to={`/blog/${resource._id}`}
                     className="text-tiny uppercase font-bold hover:text-blue-500 duration-150 cursor-pointer"
                   >
                     Read more
                   </Link>
-                  <small className="text-default-500">{resource.date}</small>
+                  <small className="text-default-500">
+                    {new Date(resource.updatedAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </small>
                   <h4 className="font-bold text-large">{resource.title}</h4>
                 </CardBody>
               </Card>

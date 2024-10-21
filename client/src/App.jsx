@@ -18,7 +18,7 @@ function App() {
         <Route path="/questions" element={<Questions />} />
         <Route path="/result" element={<ResultPage />} />
         <Route path="/form" element={<MovingForm />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<Blog />} />
       </Routes>
     </Router>
   );

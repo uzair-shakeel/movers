@@ -15,12 +15,17 @@ const sectionSchema = new mongoose.Schema({
   content: [{ type: String }],
 });
 
-const blogPostSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  mainImage: { type: String, required: true },
-  description: { type: String },
-  sections: [sectionSchema],
-});
+const blogPostSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    mainImage: { type: String, required: true },
+    description: { type: String },
+    sections: [sectionSchema],
+  },
+  {
+    timestamps: true, // This will add `createdAt` and `updatedAt` fields
+  }
+);
 
 const BlogPost = mongoose.model("BlogPost", blogPostSchema);
 module.exports = BlogPost;
